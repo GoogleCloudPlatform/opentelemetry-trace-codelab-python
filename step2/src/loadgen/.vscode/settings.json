@@ -1,0 +1,15 @@
+{
+    "python.pythonPath": ".venv/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.blackPath": ".venv/bin/black",
+    "python.formatting.provider": "black",
+    "python.sortImports.path": ".venv/bin/isort",
+    "python.linting.flake8Args": [
+        "--ignore=E501",
+        "--exclude=shakesapp_pb2*.py"
+    ],
+    "python.formatting.blackArgs": [
+        "--force-exclude=shakesapp_pb2_grpc.py"
+    ]
+}
