@@ -77,12 +77,12 @@ def main():
     target = os.environ.get("CLIENT_ADDR", "0.0.0.0:8080")
 
     exporter = CloudTraceSpanExporter()
+    trace.set_tracer_provider(TracerProvider())
     trace.get_tracer_provider().add_span_processor(
         SimpleSpanProcessor(exporter)
     )
     tracer = trace.get_tracer(__name__)
     propagate.set_global_textmap(CloudTraceFormatPropagator())
-    trace.set_tracer_provider(TracerProvider())
 
     # connectivity check to client service
     healthz = f"http://{target}/_healthz"
