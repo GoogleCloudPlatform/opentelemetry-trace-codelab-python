@@ -83,9 +83,9 @@ logger.info(f"server address is {SERVER_ADDR}")
 # NOTE: SimpleSpanProcessor is for debugging use in general.
 # we use it here for a demonstration purpose.
 exporter = CloudTraceSpanExporter()
+trace.set_tracer_provider(TracerProvider())
 trace.get_tracer_provider().add_span_processor(SimpleSpanProcessor(exporter))
 propagate.set_global_textmap(CloudTraceFormatPropagator())
-trace.set_tracer_provider(TracerProvider())
 
 
 @app.route("/")
