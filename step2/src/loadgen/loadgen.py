@@ -80,9 +80,9 @@ def main():
     trace.get_tracer_provider().add_span_processor(
         SimpleSpanProcessor(exporter)
     )
+    trace.set_tracer_provider(TracerProvider())
     tracer = trace.get_tracer(__name__)
     propagate.set_global_textmap(CloudTraceFormatPropagator())
-    trace.set_tracer_provider(TracerProvider())
 
     # connectivity check to client service
     healthz = f"http://{target}/_healthz"
