@@ -12,7 +12,7 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-grpcio = "^1.36.1"
+grpcio = "^1.53.2"
 protobuf = "^3.15.5"
 grpcio-health-checking = "^1.36.1"
 Flask = "^1.1.2"
